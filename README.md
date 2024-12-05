@@ -8,9 +8,10 @@
 
 ## Q&A
 
-### CounterControllerクラス内のCounterModelのSetメソッド部分でのvalueという変数はどこから出てきた？ 
+- CounterControllerクラス内のCounterModelのSetメソッド部分でのvalueという変数はどこから出てきた？ 
 
-- valueは、利用者側のクラスで代入された値がプロパティの設定メソッド（setter）内で格納される予約語。 
+    - valueは、利用者側のクラスで代入された値がプロパティの設定メソッド（setter）内で格納される予約語。 
+https://learn.microsoft.com/ja-jp/dotnet/csharp/programming-guide/classes-and-structs/auto-implemented-properties
 
 ### CounterControllerクラス内のCounterControllerメソッドで、CounterModel = model;としているのに、_counterView = view;と命名している。CounterViewとせずアンダーバーを使う理由。 
 
