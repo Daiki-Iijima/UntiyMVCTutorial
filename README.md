@@ -10,6 +10,36 @@
 
 - CounterControllerクラス内のCounterModelのSetメソッド部分でのvalueという変数はどこから出てきた？ 
 
+`CounterController`クラス内のCounterModelのSetter内のvalue変数はどこからきたのか
+```c#
+private CounterModel CounterModel
+    {
+        get => _counterModel;
+        set
+        {
+            //  nullを設定しないようにする
+            if (value == null)
+            {
+                Debug.LogError("nullを設定しないでください");
+                return;
+            }
+            
+            //  バリデーションチェックをするならここかModel
+            if (value.Count < 0)
+            {
+                Debug.LogError("カウントは0以下にはなりません");
+                return;
+            }
+            
+            //  モデルの更新
+            _counterModel = value;
+            
+            //  ビューの更新
+            _counterView.CountText.text = $"Count : {value.Count.ToString()}";
+        }
+    }
+```
+
     - valueは、利用者側のクラスで代入された値がプロパティの設定メソッド（setter）内で格納される予約語。 
 https://learn.microsoft.com/ja-jp/dotnet/csharp/programming-guide/classes-and-structs/auto-implemented-properties
 
